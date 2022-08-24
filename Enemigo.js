@@ -7,8 +7,17 @@ class Enemigo {
     }
 
     atacar(jugador){
-        console.log('dañar al jugador')
+        // console.log('dañar al jugador')
         jugador.recibirDano(this.poder);
+    }
+
+    recibirDano(dano, jugador){
+        this.vida -= dano;
+        if( this.vida <= 0 ){
+            this.vida = 0;
+            jugador.cambiarArma()
+            console.log(`%c Muerto: ${this.nombre}`, 'color: yellow; background-color: red;')
+        }
     }
 }
 
